@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+
+<div class="hero">
+    <img class='paper-img' src="/assets/Paper.png">
+    <img class='rock-img' src="/assets/Rock.png">
+    <img class='sci-img' src="/assets/sci.png">
+    <p class='rock-hero'>ROCK</p>
+    <p class='paper-hero'>PAPER</p>
+    <p class='sci-hero'>SCISSORS</p>
+    <button class="hero-button">click</button>
+</div>
+
+<div class="main-body">
+    <div class="container">
+        <h2>Rock Paper Scissors</h2>
+        <div class='scoreboard'>
+                <p>Player Score</p>
+                <span class="playerScore">0</span>
+                <p>Opponent's Score</p>
+                <span class="cpuScore">0</span>
+        </div>
+
+        <div class='RPSContainer'>
+            <button class="rock">R</button>
+            <button class="paper">P</button>
+            <button class="scissor">S</button>   
+        </div>
+    </div>
+
+    <div>
+        <p class="context"></p>
+    </div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="/app.js"></script>
+</html>

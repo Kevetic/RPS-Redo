@@ -1,0 +1,50 @@
+html, body {
+    background-color: black;
+    color: white;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.main-body {
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
+    position: relative;
+    top: 50%;
+}
+
+.hero {
+    text-align: center;
+    background-color: black;
+    color: white;
+    height: 100%;
+    position: relative;
+    top: 50%;
+}
+
+.paper-img, .rock-img, .sci-img {
+    width: 20%;
+}
+
+.sci-img {
+    position: fixed;
+    transform: rotate(
+    180deg);
+    right: 0;
+    bottom: 0;
+}
+.rock-img {
+    position: fixed;
+    top: 0;
+    left: 40%;
+    right: 34%;
+}
+.paper-img {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.h2-container {
+    display: flex;
+}
