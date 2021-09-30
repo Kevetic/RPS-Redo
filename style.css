@@ -86,17 +86,26 @@ html, body {
     display: inline-grid;
 }
 .scoreboard {
-    margin: 20px;
-    justify-content: center;
+    margin: 0 auto;
+    justify-content: space-between;
+    width: 80%;
     display: flex;
     position: relative;
 }
 .scoreboard p {
     padding: 20px;
 }
+.scoreboard span {
+    font-weight: bolder;
+    font-size: 45px;
+    color: red;
+}
 
 .rock-choice, .paper-choice, .sci-choice {
     width: 10%;
+}
+.rock {
+    padding: 0px 60px !important;
 }
 
 .RPSContainer .rock, .paper, .scissor {
@@ -106,10 +115,27 @@ html, body {
     padding: 5px;
 }
 .RPSContainer .rock, .paper, .scissor {
-padding: 10px;
+    padding: 10px;
 }
 .RPSContainer {
     display: flex;
-    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
 }
+
+.context {
+    font-size: 60px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    transition: 4;
+}
+
+.choice-transition {
+    padding-top: 100px;
+    width: 80%;
+    margin: 0 auto;
+}
+
 

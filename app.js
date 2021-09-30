@@ -41,15 +41,15 @@ function rpsShoot() {
     setTimeout(function(){ gameStart(); }, 1000);
 }
 
-function rpsChosen() {
+function rpsChosen(cpuChoice, selectedImage) {
+    playerChange(selectedImage)
     $("#player-choice").effect( "shake", { direction: "up", times: 3, distance: 50}, 1000 );
     $("#cpu-choice").effect( "shake", { direction: "up", times: 3, distance: 50}, 1000 );
-    cpuChange()
+    cpuChange(cpuChoice)
 }
 
-function cpuChange(){
-    const cpuChoice = computerChoice()
-    console.log(cpuChoice)
+function cpuChange(cpuChoice){
+    // console.log(cpuChoice)
     if (cpuChoice =='P') {
         setTimeout(function(){
             $("#cpu-choice").attr("src", "/assets/Paper.png")
@@ -67,22 +67,10 @@ function cpuChange(){
     }
 }
 
-function playerChange(playerChosen){
-    if (playerChosen =='P') {
-        setTimeout(function(){
-            $("#player-choice").attr("src", "/assets/Paper.png")
-        }, 1000)
-    }
-    if (playerChosen =='R') {
-        setTimeout(function(){
-            $("#player-choice").attr("src", "/assets/Rock.png")
-        }, 1000)    
-    }
-    if (playerChosen =='S') {
-        setTimeout(function(){
-            $("#player-choice").attr("src", "/assets/sci.png")
-        }, 1000)    
-    }
+function playerChange(selectedImage){
+    setTimeout(function(){
+        $("#player-choice").attr("src", selectedImage)
+    }, 1000, selectedImage)
 }
 
 function gameStart() {
@@ -104,24 +92,40 @@ function computerChoice () {
 }
 
 function win() {
-    userScore++;
-    player.html(userScore);
-    context.html('You won')
+    setTimeout(function(){
+        userScore++;
+        player.html(userScore).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+        context.html('YOU WON')
+    }, 1500)
+    contextReset()
 }
+
 
 function lose() {
-    cpuScore++;
-    compScore.html(cpuScore);
-    context.html('You Lost')
-
+    setTimeout(function(){
+        cpuScore++;
+        compScore.html(cpuScore).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+        context.html('YOU LOST')
+    }, 1500)
+    contextReset()
 }
 function draw() {
-    context.html('Its a draw')
+    setTimeout(function(){
+        context.html('ITS A DRAW')
+    }, 1500)
+    contextReset()
 }
 
-function game(playerChoice) {
+function contextReset() {
+    setTimeout(function(){
+        context.html('')
+    }, 3000)
+}
+
+function game(playerChoice, selectedImage) {
     $('.choice-transition').show()
     const cpuChoice = computerChoice();
+    // console.log(playerChoice + cpuChoice) 
     switch (playerChoice + cpuChoice) {
       case 'RS':
       case 'SP':
@@ -139,27 +143,15 @@ function game(playerChoice) {
         draw(playerChoice, cpuChoice);
         break;
     }
-    console.log(playerChoice + cpuChoice)
+    rpsChosen(cpuChoice, selectedImage)
+    console.log(cpuChoice, playerChoice)
 }
 
 function main () {
-    $('.rock').click(function () {
-        game('R');
-        playerChange('R')
-        rpsChosen();
-
-    });
-    $('.paper').click(function () {
-        game('P');
-        playerChange('P')
-        rpsChosen();
-
-    });
-    $('.scissor').click(function () {
-        game('S');
-        playerChange('S')
-        rpsChosen();
-
+    $('.RPSbutton').click(function () {
+        let selectedChoice = $(this).data('selected')
+        let selectedImage = $(this).data('select_img')
+        game(selectedChoice, selectedImage)
     });
 }
 main();
